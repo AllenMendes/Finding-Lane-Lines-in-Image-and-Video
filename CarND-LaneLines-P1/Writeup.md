@@ -12,6 +12,7 @@ The main objective is to create a software pipeline with certain helper function
 6. Hough Transform
 7. Average and extrapolate hough lines
 8. Draw annotated lines on image and video data
+9. Main pipeline
 
 ## Reflection
 
@@ -77,13 +78,30 @@ The flow of the software piepline is explained in the following sections along w
 
  ##### Applying Averaging and extrapolating functions
  ![avgout](https://user-images.githubusercontent.com/8627486/43038651-4d6d0d4e-8ceb-11e8-8e34-59bf3caf6ffe.png)
+ 
+ ### 9. Main pipeline
+ Using all the above helper functions, when I first tested my pipeline on the video data, everything worked fine but I observed a lot of jitter in the lane lines holding their position (bouncing around slightly) along the entire length of the video. The pipeline worked but it wasn't robust enough ! After researching online, I found out the ereason for this jitter to be slight deviations in the lane lines values from frame to frame which causes this jittering effect. Hence, I stored the lane line outputs of the most recent 50 frames in ```prev_LaneLines[]``` and took and average with the current frame's lane line output to display the current frame's output. I made a class ```class DetectLanes``` and embedded my pipeline inside it so that I can use an object of this class ```detect = DetectLanes()``` to display the mean output of my pipeline on image and video data. NOTE: I had to flush the ```prev_LaneLines[]``` array using ```del detect.prev_LaneLines[:]``` before running the next video file as it used the data from the previous video file's execution.
    
-   
-
-
+ # Software Pipeline Output
+ [Images](https://github.com/AllenMendes/Finding-Lane-Lines-in-Image-and-Video/tree/master/CarND-LaneLines-P1/test_images_output)
+ ---
+ [Videos](https://github.com/AllenMendes/Finding-Lane-Lines-in-Image-and-Video/tree/master/CarND-LaneLines-P1/test_videos_output)
+---
+ [Extra Video](https://github.com/AllenMendes/Finding-Lane-Lines-in-Image-and-Video/tree/master/CarND-LaneLines-P1/test_videos_output_extra)
+---
 
 ### 2. Potential shortcomings of current pipeline
-
+The current software pipeline will not work:
+1. If there are curved roads (mountain roads)
+2. If there are too many shadows on the roads
+3. If there no lane markings or lane markings are other than yellow and white color lines
+4. If the image/video perspective is not head on (horizon level changes)
+5. Drastic changes in ligthing conditions (rain, night time, snow)
+6. Cars or external objects blocking the region of interest or lane lines too much
 
 ### 3. Possible improvements of current pipeline
+1. Add perspective transform
+2. Making pipeline independent of light variations and shadows
+3. Adding more sensor data like LIDAR and GPS in addition to the visual data
+
 
