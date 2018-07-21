@@ -64,7 +64,19 @@ The flow of the software piepline is explained in the following sections along w
  ### 7. Average and extrapolate hough lines
    * Average function - ```average(lines)``` 
    
-   First we create two lists ```leftLine``` and ```rightLine``` which would store the weighted average of all the hough lines      in detected in the left and right lane respectively. To classify if a hough line belong to the left or rigth lane, we            calculate the slopes of all hough lines (intercepts and length as well). Hough lines with negative slope and length more than    50  pixels get classified as left lane lines and hough lines with positive slope and length more than 50 pixels get              classified as right lane lines. Taking a weighted average of all the classified left and right lane hough lines based on the    length of the lines help eliminate all the smaller hough lines detected that can make the final output unstable. Hence, only    the longer hough lines detected will dominate the weighted average so that we obtain a robust output.
+   First I created two lists ```leftLine``` and ```rightLine``` which would store the weighted average of all the hough lines      in detected in the left and right lane respectively. To classify if a hough line belong to the left or rigth lane, we            calculate the slopes of all hough lines (intercepts and length as well). Hough lines with negative slope and length more than    50  pixels get classified as left lane lines and hough lines with positive slope and length more than 50 pixels get              classified as right lane lines. Taking a weighted average of all the classified left and right lane hough lines based on the    length of the lines help eliminate all the smaller hough lines detected that can make the final output unstable. Hence, only    the longer hough lines detected will dominate the weighted average so that robust output is obtained.
+   
+   * Find Endpoints function - ```findEndpoints(image, intercepts, yLimit)```
+   
+   I created two lists namely ```global prev_leftLaneLine``` and ```global prev_rightLaneLine```. These lists will store the ```leftLine``` and ```rightLine``` values of the previous frame while comparing the corresponding values in the current frame only when a NONE case is observed in the ```leftLine``` and ```rightLine``` values. The reason for getting a NONE case is that may be for a certain frame, all the hough lines detected have only positive or only negative slope. That means no hough lines were classified in either the ```leftLine``` and ```rightLine``` lists resulting in a empty list or a NONE case. The pipeline crashes if this NONE case is not handled. Hence, if a NONE case occurs, using the  ```global prev_leftLaneLine``` and ```global prev_rightLaneLine``` values, I find the endpoints of the final left lane and right lane to be drawn on the image. If no NONE case occurs, simply using the current frame's ```leftLine``` and ```rightLine``` values to calculate the final left lane and right lane to be drawn on the image.
+
+### 8. Draw annotated lines on image and video data
+   * Draw Lane Lines function - ```drawLaneLines(image, endpoints, color=[[255, 0, 0], [0, 0, 255]], thickness = 15)```
+   
+   If there is no NONE case from the previous function, I use the ```cv2.line()``` function to draw an annotated left lane on the image in RED color and an annotated right lane on the image in BLUE color. I also use the ```cv2.fillPoly()``` function to fill the area between the left and right lane in GREEN color to represent "SAFE DRIVING ZONE".
+
+ ##### Applying Averaging and extrapolating functions
+ ![avgout](https://user-images.githubusercontent.com/8627486/43038651-4d6d0d4e-8ceb-11e8-8e34-59bf3caf6ffe.png)
    
    
 
