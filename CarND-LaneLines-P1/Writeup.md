@@ -24,9 +24,13 @@ The flow of the software piepline is explained in the following sections along w
   ##### Original image
   ![challenge_image1](https://user-images.githubusercontent.com/8627486/43037545-1e742d10-8cdc-11e8-9efd-748017139e6c.png)
   
-  If we convert this image to grayscale and using the ```python inRange()``` function with parameters set to detect yellow and white lines, the output is not very clear in situations where shadows are present on the lane lines.
+  If we convert this image to grayscale and use the ```inRange()``` function with parameters set to detect yellow and white lines, the output is not very clear in situations where shadows are present on the lane lines.
   ##### Color selection in grayscale image
   ![grayout](https://user-images.githubusercontent.com/8627486/43037471-47413482-8cdb-11e8-9757-5f26069dd0b3.png)
+  
+ I converted the original image to a HSV image and observed that the color selected output performs better than a color selected grayscale image. Although, in comparison with the above two formats, the color selected output of a HSL image was much better in detecting white and yellow lane lines in image and video data without getting affected by any shadow on the road. Hence, I perform the further image processing techniques on a HSL image.
+ ##### Color selection in a HSL image
+ ![hslout](https://user-images.githubusercontent.com/8627486/43037612-fc394eaa-8cdc-11e8-95c9-fc3ff8ec46a5.png)
 
 
 
