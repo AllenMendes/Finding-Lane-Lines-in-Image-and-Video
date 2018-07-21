@@ -60,6 +60,13 @@ The flow of the software piepline is explained in the following sections along w
  Find hough lines in the ROI output image using hough transform
  ##### Hough Transform output
  ![houghout](https://user-images.githubusercontent.com/8627486/43038461-eb6d62fa-8ce6-11e8-8a99-9ac5566966d6.png)
+ 
+ ### 7. Average and extrapolate hough lines
+   * Average function - ```average(lines)``` 
+   
+   First we create two lists ```leftLine``` and ```rightLine``` which would store the weighted average of all the hough lines      in detected in the left and right lane respectively. To classify if a hough line belong to the left or rigth lane, we            calculate the slopes of all hough lines (intercepts and length as well). Hough lines with negative slope and length more than    50  pixels get classified as left lane lines and hough lines with positive slope and length more than 50 pixels get              classified as right lane lines. Taking a weighted average of all the classified left and right lane hough lines based on the    length of the lines help eliminate all the smaller hough lines detected that can make the final output unstable. Hence, only    the longer hough lines detected will dominate the weighted average so that we obtain a robust output.
+   
+   
 
 
 
