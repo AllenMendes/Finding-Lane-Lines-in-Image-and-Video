@@ -1,16 +1,17 @@
-# **Finding Lane Lines on the Road** 
+# **Finding Lane Lines on the Road in Image and Video data Writeup** 
 
-## Writeup Template
+## Objectives
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
+The main objective is to create a software pipeline with certain helper functions to detect lane lines in image and video data. The following methods were implemented to obtain the final results:
 
----
-
-**Finding Lane Lines on the Road**
-
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
+1. Color selection to detect white and yellow lane lines
+2. Convert image to grayscale for Canny Edge detection
+3. Gaussian Blur to remove noise from the image
+4. Canny Edge detection
+5. Define a Region of Interest
+6. Hough Transform
+7. Average and extrapolate hough lines
+8. Draw annotated lines on image/video data
 
 
 [//]: # (Image References)
