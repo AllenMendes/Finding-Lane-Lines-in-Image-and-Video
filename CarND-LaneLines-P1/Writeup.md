@@ -37,7 +37,11 @@ The flow of the software piepline is explained in the following sections along w
 ![hslfilout](https://user-images.githubusercontent.com/8627486/43037702-622aa64a-8cde-11e8-9ae5-baf95dd78378.png)
  
  ### 2. Convert image to grayscale for Canny Edge detection
- As the canny edge detector requires a grayscale image (as the algoirthm looks for gradient values) as an input image, we convert the original image into a grayscale image and give it to the canny edge detector.
+ As the canny edge detector requires a grayscale image (as the algoirthm looks for gradient values) as an input image, we convert the color selected HSL image into a grayscale image and give it to the canny edge detector.
+ ##### Color selected HSL image converted to grayscale
+ ![grayfilout](https://user-images.githubusercontent.com/8627486/43037727-ec5a12ec-8cde-11e8-8e32-854679044456.png)
+ 
+ 
  
 
 
