@@ -1,8 +1,8 @@
 # **Finding Lane Lines on the Road in Image and Video Data** 
-
-![processed_solidwhiteright](https://user-images.githubusercontent.com/8627486/43031227-56aca08e-8c6b-11e8-8747-0a78e4f31b43.jpg)
-
-<img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
+## Raw Image
+![Image input](https://user-images.githubusercontent.com/8627486/43031246-e2bb3c66-8c6b-11e8-8dcf-6ae5ac06b792.jpg)
+## Annotated Image
+![Image Output](https://user-images.githubusercontent.com/8627486/43031227-56aca08e-8c6b-11e8-8747-0a78e4f31b43.jpg)
 
 Overview
 ---
