@@ -41,8 +41,15 @@ The flow of the software piepline is explained in the following sections along w
  ##### Color selected HSL image converted to grayscale
  ![grayfilout](https://user-images.githubusercontent.com/8627486/43037727-ec5a12ec-8cde-11e8-8e32-854679044456.png)
  
+ ### 3. Gaussian Blur to remove noise from the image
+ To smoothen the grayscale color selected HSL image, we apply a Gaussian Blur with ```kernel_size = 7``` and thresholds as ```low_threshold = 50```, ```high_threshold = 150```.
+ ##### Applying Gaussian Blur
+ ![blurout](https://user-images.githubusercontent.com/8627486/43038204-2f666afa-8ce3-11e8-8ff4-14d5cd15bde6.png)
  
- 
+ ### 4. Canny Edge detection
+ Apply Canny Edge detector to the smoothen image to obtain an image with all the edges detected.
+ ##### Applying Canny Edge detector
+ ![edgeout](https://user-images.githubusercontent.com/8627486/43038223-6b31d6c8-8ce3-11e8-82da-cfbfd7a04400.png)
 
 
 
