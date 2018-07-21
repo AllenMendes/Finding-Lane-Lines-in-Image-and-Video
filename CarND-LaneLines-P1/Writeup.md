@@ -37,7 +37,7 @@ The flow of the software piepline is explained in the following sections along w
 ![hslfilout](https://user-images.githubusercontent.com/8627486/43037702-622aa64a-8cde-11e8-9ae5-baf95dd78378.png)
  
  ### 2. Convert image to grayscale for Canny Edge detection
- As the canny edge detector requires a grayscale image (as the algoirthm looks for gradient values) as an input image, we convert the color selected HSL image into a grayscale image and give it to the canny edge detector.
+ As the canny edge detector requires a grayscale image (as the algorithm looks for gradient values) as an input image, we convert the color selected HSL image into a grayscale image and give it to the canny edge detector.
  ##### Color selected HSL image converted to grayscale
  ![grayfilout](https://user-images.githubusercontent.com/8627486/43037727-ec5a12ec-8cde-11e8-8e32-854679044456.png)
  
@@ -50,6 +50,16 @@ The flow of the software piepline is explained in the following sections along w
  Apply Canny Edge detector to the smoothen image to obtain an image with all the edges detected.
  ##### Applying Canny Edge detector
  ![edgeout](https://user-images.githubusercontent.com/8627486/43038223-6b31d6c8-8ce3-11e8-82da-cfbfd7a04400.png)
+ 
+ ### 5. Define a Region of Interest (ROI)
+ Define a polygon to exclude all the irrelevant edges in the image so that we can only see the lane lines on the road.
+ ##### ROI output
+ ![roiout](https://user-images.githubusercontent.com/8627486/43038250-efd78e68-8ce3-11e8-8b33-dd4f8b751832.png)
+ 
+ ### 6. Hough Transform
+ Find hough lines in the ROI output image using hough transform
+ ##### Hough Transform output
+ ![houghout](https://user-images.githubusercontent.com/8627486/43038461-eb6d62fa-8ce6-11e8-8a99-9ac5566966d6.png)
 
 
 
