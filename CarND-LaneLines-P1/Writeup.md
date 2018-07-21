@@ -20,7 +20,14 @@ The main objective is to create a software pipeline with certain helper function
 The flow of the software piepline is explained in the following sections along with the detailed explaination of each helper function and the reasons for selecting various parameters in them:
 
   #### 1. Color selection to detect white and yellow lane lines
-    After reading an image, the first task is to robustly detect the white and yellow lines in an image. 
+  After reading an image, the first task is to robustly detect the white and yellow lines in an image. 
+  ##### Original image
+  ![challenge_image1](https://user-images.githubusercontent.com/8627486/43037545-1e742d10-8cdc-11e8-9efd-748017139e6c.png)
+  
+  If we convert this image to grayscale and using the ```python inRange()``` function with parameters set to detect yellow and white lines, the output is not very clear in situations where shadows are present on the lane lines.
+  ##### Color selection in grayscale image
+  ![grayout](https://user-images.githubusercontent.com/8627486/43037471-47413482-8cdb-11e8-9757-5f26069dd0b3.png)
+
 
 
 ### 2. Potential shortcomings of current pipeline
