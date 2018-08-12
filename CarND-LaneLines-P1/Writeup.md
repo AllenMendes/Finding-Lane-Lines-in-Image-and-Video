@@ -18,7 +18,7 @@ The main objective is to create a software pipeline with certain helper function
 
 ### 1. Software Pipeline
 ---
-The flow of the software piepline is explained in the following sections along with the detailed explaination of each helper function and the reasons for selecting various parameters in them:
+The flow of the software pipeline is explained in the following sections along with the detailed explaination of each helper function and the reasons for selecting various parameters in them:
 
   ### 1. Color selection to detect white and yellow lane lines
   After reading an image, the first task is to robustly detect the white and yellow lines in an image. 
